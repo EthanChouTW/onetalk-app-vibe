@@ -5,12 +5,15 @@ A React Native Expo app for customer relationship management with Chinese interf
 ## Features
 
 - **Member Management**: View and manage member profiles with ratings, contact information, and tags
-- **Search Functionality**: Search members by name or phone number
+- **Search Functionality**: Search members by name, birthday, phone number, and ID number with fuzzy search
+- **Advanced Filtering**: Filter members by LINE status, send channel, and tags
 - **Member Statistics**: Dashboard showing total members, active members, and high-rated members
 - **Contact Actions**: Direct call, SMS, and email functionality
-- **Member Details**: Comprehensive member profile with contact history and notes
+- **Member Details**: Comprehensive member profile with contact history, case tracking, and notes
 - **Rating System**: 5-star rating system for member evaluation
 - **Chinese Interface**: Full Chinese language support
+- **Tag Management**: Add, search, and manage member tags
+- **Case Tracking**: Track member cases and appointments
 
 ## Tech Stack
 
@@ -24,63 +27,94 @@ A React Native Expo app for customer relationship management with Chinese interf
 
 1. **Install dependencies**:
    ```bash
-   yarn install
+   npm install
    ```
 
 2. **Start the development server**:
    ```bash
-   yarn start
+   npm start
    ```
 
 3. **Run on different platforms**:
    ```bash
    # iOS Simulator
-   yarn ios
+   npm run ios
    
    # Android Emulator
-   yarn android
+   npm run android
    
    # Web browser
-   yarn web
+   npm run web
    ```
+
+## Package Management
+
+This project uses **npm** as the package manager. Make sure to use npm commands for consistency:
+
+```bash
+# Install new packages
+npm install <package-name>
+
+# Install dev dependencies
+npm install --save-dev <package-name>
+
+# Update packages
+npm update
+
+# Remove packages
+npm uninstall <package-name>
+```
 
 ## Project Structure
 
 ```
 src/
-├── components/         # Reusable UI components
-│   └── MemberCard.tsx  # Member card component
-├── screens/           # App screens
-│   ├── MembersScreen.tsx      # Main members list
+├── components/              # Reusable UI components
+│   ├── MemberCard.tsx      # Member card component
+│   ├── FilterBar.tsx       # Advanced filtering component
+│   ├── BottomTabBar.tsx    # Bottom navigation
+│   └── ActionDropdown.tsx  # Action dropdown menu
+├── screens/                # App screens
+│   ├── MembersScreen.tsx   # Main members list with search and filters
 │   └── MemberDetailScreen.tsx # Member detail view
-├── navigation/        # Navigation setup
-│   └── AppNavigator.tsx
-├── data/             # Sample data
-│   └── members.ts    # Member sample data
-└── types/            # TypeScript definitions
-    └── index.ts
+├── data/                   # Sample data
+│   └── members.ts          # Diverse member sample data
+└── types/                  # TypeScript definitions
+    └── index.ts            # Type definitions
 
-App.tsx              # Main app component
-global.css           # Global styles for NativeWind
-tailwind.config.js   # Tailwind CSS configuration
-metro.config.js      # Metro bundler configuration
+App.tsx                     # Main app component
+.gitignore                  # Git ignore file
+tailwind.config.js          # Tailwind CSS configuration
+metro.config.js             # Metro bundler configuration
 ```
 
-## Screenshots
+## Key Features
 
-The app includes:
-- Member list with search functionality
-- Member cards with profile photos, ratings, and contact info
-- Member detail pages with comprehensive information
-- Bottom tab navigation
-- Contact action buttons (call, SMS, email)
+### Search & Filter
+- **Fuzzy Search**: Search by name, birthday (multiple formats), phone, and ID number
+- **LINE Status Filter**: Filter by connected/disconnected status
+- **Send Channel Filter**: Filter by green light (can send) / gray light (cannot send)
+- **Tag Filter**: Advanced tag selection with search and custom tag creation
+
+### Member Management
+- **Diverse Sample Data**: 8 unique members with realistic Chinese data
+- **Member Details**: Complete profile information with case tracking
+- **Tag System**: Flexible tagging with search and management
+- **Case Tracking**: Monitor member appointments and treatments
+
+### UI/UX
+- **Modern Design**: Clean interface following Figma specifications
+- **Responsive Filters**: Modal and dropdown-based filtering
+- **Real-time Search**: Instant search results as you type
+- **Professional Layout**: Card-based design with consistent styling
 
 ## Development
 
 This app is designed to match the provided Figma design with:
 - Clean, modern UI following the Chinese member management interface
-- Blue accent color scheme
+- Blue accent color scheme with proper filter button states
 - Card-based layout for member information
+- Advanced search and filtering capabilities
 - Intuitive navigation and user interactions
 
 ## Future Enhancements
@@ -89,4 +123,7 @@ This app is designed to match the provided Figma design with:
 - Implement contact history tracking
 - Add analytics and reporting
 - Push notifications for member activities
-- Export functionality for member data 
+- Export functionality for member data
+- Advanced case tracking features
+- Member photo management
+- Appointment scheduling system 
